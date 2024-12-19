@@ -12,18 +12,18 @@ def home():
         link = None
         try:
             link = request.form["link"]
-            # Validate if model is empty or not; if empty, set it to "base"
-            model = request.form.get("model", "base")
-            if not model:
+            # we need to validate if model is empty or not if empty then we need to set it to base
+            model = request.form["model"]
+            if model == "":
                 model = "base"
-        except KeyError:
-            errors += "<p>{!r} is not a valid link.</p>\n".format(request.form.get("link", ""))
+        except:
+            errors += "<p>{!r} is not a valid link.</p>\n".format(request.form["link"])
         if link is not None:
-            result = main(link, model)
+            result = main(link,model)
             print(result)
             return render_template("result.html", result=result)
     return render_template("home.html", errors=errors)
 
 if __name__ == "__main__":
-    # Must use port 3000 to work with Docker app feature.
+    # Mmust use port 80 to work with Docker app feature.
     app.run(port=4000, host="0.0.0.0")
