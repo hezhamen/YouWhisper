@@ -26,4 +26,4 @@ def home():
 
 if __name__ == "__main__":
     # Mmust use port 80 to work with Docker app feature.
-    app.run(port=80, host="0.0.0.0")
+    app.run(port=4000, host="5.75.241.124")

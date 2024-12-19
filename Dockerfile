@@ -12,5 +12,5 @@ COPY requirements.txt ./requirements.txt
 RUN pip install -r requirements.txt --no-cache-dir
 COPY . .
 # Expose the port and then launch the app.
-EXPOSE 4040
+EXPOSE 4000
 CMD ["python", "webapp.py"]
